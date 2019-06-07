@@ -83,3 +83,5 @@ To run unit and UI tests, use the standard xcode testing infrastructure (command
 Timestamps do not get reset when an issue is reopened.
 
 I would've preferred to use Appium for the UI tests as it tests as a black box and can be based on ruby.
+
+I would normally use gitflow with appropriate PR reviews but as I'm the only developer for this repository, I have been pushing direct to master
