@@ -56,6 +56,7 @@ To view a list of issues:
 - You may need to wait for the issues to load
 - Select your issue from the scrollable list, and view the detail below
 - To close/reopen the ticket click the `Close ticket`/`reopen ticket`button.
+- You can filter the issues with the button at the top `All tickets` to show only open or closed tickets.
 
 To modify the ticket otherwise, including assigning a user to it,
 - Click update ticket
@@ -77,11 +78,14 @@ To view people:
 The expected behaviour for adding and updating people would've been extremely similar to the behaviour for issues
 
 To run unit and UI tests, use the standard xcode testing infrastructure (command-u or Product-> Test)
+Note that I haven't written mocks for the api requests so the UI tests rely on live data, specifically the first entry that appears on the list of issues.
 
 # Notes
 
 Timestamps do not get reset when an issue is reopened.
 
 I would've preferred to use Appium for the UI tests as it tests as a black box and can be based on ruby.
+
+I would prefer a better way of showing the list of issues, that clearly shows there is more to the table.
 
 I would normally use gitflow with appropriate PR reviews but as I'm the only developer for this repository, I have been pushing direct to master
