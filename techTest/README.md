@@ -80,4 +80,5 @@ To run unit and UI tests, use the standard xcode testing infrastructure (command
 
 # Notes
 Timestamps do not get reset when an issue is reopened.
+
 I would've preferred to use Appium for the UI tests as it tests as a black box and can be based on ruby.
