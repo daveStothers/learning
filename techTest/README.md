@@ -6,26 +6,26 @@ Broke the test into tasks and subtasks, based on the requirements:
 
 - Create database on my personal web server
 - Create the php based apis for the data (copied down to here in techTest-phpfiles)
- * get a list of bugs
- * get a list of users
- * create bug
- * create person
- * change a bug
- * change a person
- * close bug
- * reopen bug
+	- get a list of bugs
+	- get a list of users
+	- create bug
+	- create person
+	- change a bug
+	- change a person
+	- close bug
+	- reopen bug
 - Test the apis with postman
 - Create a UI for the main menu
- * Use a generic single view template
+	- Use a generic single view template
 - Create a UI for listing issues
 - Write the back end for the issues listing
- * Create a class to request the data
- * Create a class to parse the issues data
- * Write some test cases for the parsing
+	- Create a class to request the data
+	- Create a class to parse the issues data
+	- Write some test cases for the parsing
 - Create a UI for listing issues
 - Write the back end for the people listing
- * Create a class to request the data
- * Create a class to parse the people data
+	- Create a class to request the data
+	- Create a class to parse the people data
 - Create a UI for creating/modifying issues
 - Write the back end for creating/modifying issues
 - Create a UI for creating/modifying users
@@ -79,6 +79,7 @@ The expected behaviour for adding and updating people would've been extremely si
 To run unit and UI tests, use the standard xcode testing infrastructure (command-u or Product-> Test)
 
 # Notes
+
 Timestamps do not get reset when an issue is reopened.
 
 I would've preferred to use Appium for the UI tests as it tests as a black box and can be based on ruby.
