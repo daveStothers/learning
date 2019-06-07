@@ -1,18 +1,83 @@
 ## TechTest by David Stothers
 
-#Instructions for use:
-- Open app
-- Click "Get list of authorities" to query the api for the full list of authorities.
-- Status text will appear showing "Loading authorities data" while the request is ongoing (should be very fast) and "Got Authorities data" when the request is complete
-- A picker will appear with a list of authorities in alphabetical order, and a "Get Breakdown" button
-- Select an authority and click "Get Breakdown"
-- Status will update to indicate the authority being requested. This request usually takes much longer.
-- When complete a table will appear with a breakdown in percentages beside it. These are sorted numerically/alphabetically, and will only show those relevant to the scheme the authority is subscribed to (Numeric/TextBased)
+# Approach
 
-#Assumptions (Some further assumptions may be in the code):
-- Drop down's don't exist in iOS so a picker was used instead
-- UI has been written to be functional but could be significantly improved with more storyboarding and a more dynamic table, with 2 columns. I haven't worked much in UI before so presented the data as best I could. Similarly, I haven't written XCTest UI tests before, and would prefer to use Appium to functionally test the app.
-- Networking has not been tested however network mocks should be added such that its not testing with live data. Again, this is due to not having enough experience mocking network calls.
-- API is http rather than https, and is therefore not very safe. The owners of the api should be contacted to make the api more secure
-- There is no indicator other than the data itself that a field is optional, so some fields have been assumed to be optional based on the data.
-- The data itself contained more results than the requirements suggested. All the possible results have all been shown, rather than assuming some data wasn't wanted.
+Broke the test into tasks and subtasks, based on the requirements:
+
+- Create database on my personal web server
+- Create the php based apis for the data (copied down to here in techTest-phpfiles)
+ * get a list of bugs
+ * get a list of users
+ * create bug
+ * create person
+ * change a bug
+ * change a person
+ * close bug
+ * reopen bug
+- Test the apis with postman
+- Create a UI for the main menu
+ * Use a generic single view template
+- Create a UI for listing issues
+- Write the back end for the issues listing
+ * Create a class to request the data
+ * Create a class to parse the issues data
+ * Write some test cases for the parsing
+- Create a UI for listing issues
+- Write the back end for the people listing
+ * Create a class to request the data
+ * Create a class to parse the people data
+- Create a UI for creating/modifying issues
+- Write the back end for creating/modifying issues
+- Create a UI for creating/modifying users
+- Write the back end for creating/modifying users
+- Write and create remaining tests and UI tests.
+- Write any documentation
+
+As there was significant repetition, and to stay within some sensible time limits, I have not completed:
+
+- Create a UI for creating/modifying users
+- Write the back end for creating/modifying users
+
+As these should be extremely similar to the same logic for issues, and as instructed I wanted to keep within a timeframe
+
+And:
+
+- networking tests, alongside tests on the apis
+
+As I have not tested these areas before.
+
+# Use of the app
+
+Coded and executable under Xcode 10.1.
+UI was written to display correctly on an iPhone 8 and XR. May not display correctly on larger/smaller devices.
+
+To view a list of issues:
+- Click `Get list of issues`
+- You may need to wait for the issues to load
+- Select your issue from the scrollable list, and view the detail below
+- To close/reopen the ticket click the `Close ticket`/`reopen ticket`button.
+
+To modify the ticket otherwise, including assigning a user to it,
+- Click update ticket
+- You can then modify any of the fields that appear, and click submit ticket to update it.
+- when modifying assignees they autocomplete from the registered usernames
+
+To create an issue:
+- Go back to the main menu
+- Click `Get list of issues`
+- You may need to wait for the issues to load
+- Click `Create ticket`
+- Fill in the details and click `Submit ticket`
+
+To view people:
+- Click `Get list of people`
+- You may need to wait for the people to load
+- Select your issue from the scrollable list, and view the detail below
+
+The expected behaviour for adding and updating people would've been extremely similar to the behaviour for issues
+
+To run unit and UI tests, use the standard xcode testing infrastructure (command-u or Product-> Test)
+
+# Notes
+Timestamps do not get reset when an issue is reopened.
+I would've preferred to use Appium for the UI tests as it tests as a black box and can be based on ruby.
