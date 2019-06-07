@@ -44,7 +44,7 @@ And:
 
 - networking tests, alongside tests on the apis
 
-As I have not tested these areas before.
+As I have not tested these areas before, and I felt it would use a significant amount of the timeframe
 
 # Use of the app
 
